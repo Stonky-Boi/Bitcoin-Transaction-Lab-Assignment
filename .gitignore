@@ -1,4 +1,6 @@
 *.out
+*.o
 build
 
 .btcdeb_history
+.env

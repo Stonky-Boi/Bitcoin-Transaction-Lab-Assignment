@@ -1,4 +1,5 @@
 #include "BitcoinRpcClient.hpp"
+#include "DotEnv.hpp"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -31,7 +32,13 @@ int main() {
             << "Format,Transaction,Size(Bytes),VSize(vBytes),Weight(WU)\n";
         metricsFile.close();
 
-        BitcoinRpcClient btcClient{"yourRpcUser", "yourRpcPassword"};
+		DotEnv envConfig(".env");
+        std::string rpcUser = envConfig.get("RPC_USER", "defaultUser");
+        std::string rpcPassword = envConfig.get("RPC_PASSWORD", "defaultPass");
+        std::string rpcIp = envConfig.get("RPC_IP", "127.0.0.1");
+        int rpcPort = std::stoi(envConfig.get("RPC_PORT", "18443"));
+
+        BitcoinRpcClient btcClient{rpcUser, rpcPassword, rpcIp, rpcPort};
 
         try {
             btcClient.callMethod("createwallet", {"labWallet"});

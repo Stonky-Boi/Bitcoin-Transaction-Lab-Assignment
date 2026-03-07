@@ -2,16 +2,18 @@ services:
   bitcoind:
     image: ruimarinho/bitcoin-core:latest
     container_name: bitcoind-regtest
+    env_file:
+      - .env
     command:
       -regtest
       -printtoconsole
       -rpcbind=0.0.0.0
       -rpcallowip=0.0.0.0/0
-      -rpcuser=yourRpcUser
-      -rpcpassword=yourRpcPassword
+      -rpcuser=${RPC_USER}
+      -rpcpassword=${RPC_PASSWORD}
       -paytxfee=0.0001
       -fallbackfee=0.0002
       -mintxfee=0.00001
       -txconfirmtarget=6
     ports:
-      - "18443:18443"
+      - "${RPC_PORT}:18443"
