@@ -42,7 +42,10 @@ int main() {
 
         try {
             btcClient.callMethod("createwallet", {"labWallet"});
-        } catch (...) {
+        } catch (const std::exception &exceptionCaught) {
+            std::cerr << Color::ALERT_RED << Color::BOLD
+                      << "Exception caught: " << Color::RESET
+                      << exceptionCaught.what() << '\n';
         }
 
         std::cout << Color::CYBER_BLUE << Color::BOLD
