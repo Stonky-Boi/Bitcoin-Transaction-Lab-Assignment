@@ -1,4 +1,4 @@
-GitHub Repository : https://github.com/Stonky-Boi/Bitcoin-Transaction-Lab-Assignment.git
+GitHub Repository : https://github.com/Stonky-Boi/Bitcoin-Transaction-Lab-Assignment
 Team Name : BitBoyz
 Team Members :
 1. Arnav Kumar            - 240001013
