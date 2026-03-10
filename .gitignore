@@ -4,3 +4,4 @@ build
 
 .btcdeb_history
 .env
+.DS_Store
