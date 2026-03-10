@@ -137,6 +137,20 @@ int main() {
             << decodedTxBC["vin"][0]["scriptSig"]["asm"].get<std::string>()
             << Color::RESET << '\n';
 
+        std::cout << Color::BOLD << "\nWitness Data (Signature & Public Key):\n"
+                  << Color::RESET;
+        if (decodedTxBC["vin"][0].contains("txinwitness")) {
+            for (const auto &witnessItem :
+                 decodedTxBC["vin"][0]["txinwitness"]) {
+                std::cout << Color::HACKER_PURPLE
+                          << witnessItem.get<std::string>() << Color::RESET
+                          << '\n';
+            }
+        } else {
+            std::cout << Color::ALERT_RED << "No witness data found."
+                      << Color::RESET << '\n';
+        }
+
         auto txidBC = btcClient
                           .callMethod("sendrawtransaction",
                                       {signedTxBC["hex"].get<std::string>()})
