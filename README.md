@@ -6,6 +6,8 @@
 * **Ayush Singh Rana** - 240001015
 * **Hrishabh Mittal** - 240001035
 
+Project Report in [report](report) folder.
+
 ## Project Overview
 This repository contains a C++ implementation for generating, signing, and broadcasting Bitcoin transactions on a local `regtest` network. It demonstrates the differences between Legacy (P2PKH) and SegWit (P2SH-P2WPKH) address formats, automating the extraction of locking/unlocking scripts and providing a data-driven comparison of transaction sizes (Bytes, vBytes, and Weight Units).
 
